@@ -34,8 +34,8 @@ class AddUserForm extends React.Component {
   state = {username: ''};
 
   handleSubmit = async (event) => {
-    event.preventDefault();
-    const user = await axios.get(`https://api.github.users/${this.state.username}`);
+    event.preventDefault();    
+    const user = await axios.get(`https://api.github.com/users/${this.state.username}`);
     this.props.onSubmit(user.data);
   }
 
@@ -56,7 +56,7 @@ class AddUserForm extends React.Component {
 class App extends Component {
 
   state = {
-    profiles: testData,
+    profiles: [],
   };
 
   addNewProfile = (profile) => {
